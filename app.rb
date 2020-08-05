@@ -1,5 +1,5 @@
 require_relative 'config/environment'
-
+require 'pry'
 class App < Sinatra::Base
 
   # This is a sample static route.
@@ -12,6 +12,18 @@ class App < Sinatra::Base
     @user_name = params[:name]
     "Hello #{@user_name}!"
   end
+
+  get "/goodbye/:name" do
+    @user_name = params[:name]
+    "Goodbye, #{@user_name}."
+  end
+
+  get "/multiply/:num1/:num2" do
+    @num1_int = params[:num1].to_i
+    @num2_int = params[:num2].to_i
+    "#{@num1_int * @num2_int}"
+  end
+
 
   # Code your final two routes here:
 
